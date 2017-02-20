@@ -1,0 +1,58 @@
+<!Doctype html>
+<head>
+<title>To -DO List</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+	#to-do_task div{
+		padding:5px;
+		margin-top: 5px;
+		font-size: 5px;
+	}
+	li{
+		list-style: none;
+	}
+</style>
+</head>
+<body>
+<h1>To-Do List</h1>
+<input type="text" id="newtask" placeholder="Enter the new task"></input>
+<button type="button" id="add">+</button>
+<div id="to-do_task">
+	<ul id="to-do_list">
+	</ul>
+</div>
+<script type="text/javascript">
+var entertask = function(){
+debugger;
+	// getting the value from the text box
+var data = $('#newtask').val();
+	var tasks='<li id="div'+(tasknumber)+'"><input type=\"checkbox\" class='+(tasknumber)+'><input type=\"text\" placeholder='+(data)+'></input></li>';
+	$("#to-do_task").append(tasks);
+	tasknumber++;
+	// resets the value to nothing on click of the + button.
+	$('#newtask').val('');
+};
+var tasknumber = 1;
+
+$(document).ready(function(){
+$("#add").click(function(){
+	entertask();
+});
+$("#newtask").keypress(function (e){
+	// debugger;
+	var key = e.which;
+	if(key == 13){
+		entertask();
+	}
+});
+$("#to-do_task").click(function(event){
+	var target = $(event.target);
+	if($(target)[0].checked == true){
+$(event.target.parentNode).remove();
+	}
+});
+	});
+</script>
+</body>
+</html>

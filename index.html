@@ -27,7 +27,7 @@ var entertask = function(){
 debugger;
 	// getting the value from the text box
 var data = $('#newtask').val();
-	var tasks='<li id="div'+(tasknumber)+'"><input type=\"checkbox\" class='+(tasknumber)+'><input type=\"text\" placeholder='+(data)+'></input></li>';
+	var tasks='<li id="div'+(tasknumber)+'"><input type=\"checkbox\" class='+(tasknumber)+'>'+(data)+'</input></li>';
 	$("#to-do_task").append(tasks);
 	tasknumber++;
 	// resets the value to nothing on click of the + button.

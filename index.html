@@ -1,0 +1,38 @@
+<!Doctype html>
+<head>
+<title>To -DO List</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<style type="text/css">
+	#to-do_task div{
+padding:5px;
+margin-top: 5px;
+font-size: 5px;
+
+	}
+</style>
+</head>
+<body>
+<h1>To-Do List</h1>
+<button type="button" id="add">+</button>
+<div id="to-do_task"></div>
+<script type="text/javascript">
+var tasknumber = 1;
+
+$(document).ready(function(){
+$("#add").click(function(){
+
+	var tasks='<div id="div'+(tasknumber)+'"><input type=\"checkbox\" class='+(tasknumber)+'><input type=\"text\" placeholder=\"enter the task\"/></input></div>';
+	$("#to-do_task").append(tasks);
+	tasknumber++;
+});
+$("#to-do_task").click(function(event){
+	var target = $(event.target);
+	if($(target)[0].checked == true){
+$(event.target.parentNode).remove();
+	}
+});
+	});
+</script>
+</body>
+</html>
